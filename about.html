@@ -12,11 +12,11 @@ people:
     image: /assets/img/vincent.jpg
     url: https://www.imperial.ac.uk/people/v.savolainen
     description: >
-      Professor Savolainen combines field ecology, molecular phylogenetics, and population genomic
-      approaches to key societal challenges, from explaining the origin of biodiversity to finding
-      solutions for its preservation in a rapidly changing world. Professor Savolainen sits on
-      various panels and advisory committees, including the UK Natural Environment Research Council
-      Peer Review College and the Royal Society International Committees.
+      Vincent combines field ecology, molecular phylogenetics, and population genomic approaches to
+      address key societal challenges, from explaining the origin of biodiversity to finding
+      solutions for its preservation in a rapidly changing world. Vincent sits on various panels and
+      advisory committees, including the UK Natural Environment Research Council Peer Review College
+      and the Royal Society International Committees.
   - last_name: Bell
     first_name: Thomas
     title: Prof
@@ -25,8 +25,8 @@ people:
     image: /assets/img/thomas.jpg
     url: https://bellmicrobelab.wordpress.com/
     description: >
-      Prof Thomas Bell is a microbial ecologist, interested particularly in patterns and processes
-      in microbial communities across a range of aquatic and terrestrial study systems. His past
+      Thomas is a microbial ecologist, interested particularly in patterns and processes in
+      microbial communities across a range of aquatic and terrestrial study systems. His past
       research has focused on spatial patterns in microbial communities and the ecological and
       evolutionary processes involved in microbial invasions, which could hold particular relevance
       for understanding persistence and spread of SARS-CoV-2 virus in the environment.
@@ -39,9 +39,9 @@ people:
     image: /assets/img/chris.jpg
     description: >
       Chris has worked extensively on the molecular biology, pathogenesis and treatment of highly
-      pathogenic human coronaviruses. Dr Coleman is a new PI building a group studying the virus:
-      host interactions of human coronaviruses at the University of Nottingham and is advising on
-      matters related to SARS-CoV-2 biology and virology.
+      pathogenic human coronaviruses. He is a new PI building a group studying the virus: host
+      interactions of human coronaviruses at the University of Nottingham and is advising on matters
+      related to SARS-CoV-2 biology and virology.
   - last_name: Hoffmann
     first_name: Till
     title: Dr
@@ -59,10 +59,17 @@ people:
   - last_name: Ransome
     first_name: Emma
     title: Dr
-    job_title: Lecturer
+    job_title: Lecturer in Microbial Ecology
     role: Co-Investigator
+    twitter: EmmaRansome1
     image: /assets/img/emma.jpg
-    hidden: true
+    description: >
+      Emma is a microbial ecologist, with a particular interest in microbial community responses to
+      environmental stressors (temperature, pollution) and the consequences these responses have for
+      whole ecosystems. She combines field surveys, molecular biology, and large-scale experiments
+      to elucidate key determinants of bacterial and viral community structure and function -– which
+      is of central importance for predicting the transmission of pathogens, such as SARS-CoV-2, in
+      the environment.
   - last_name: Woodward
     first_name: Guy
     title: Prof
@@ -71,12 +78,12 @@ people:
     url: https://www.imperial.ac.uk/people/guy.woodward
     image: /assets/img/guy.jpg
     description: >
-      Professor Woodward is a freshwater ecologist, with particular interests in developing new
-      gene-to-ecosystem approaches to understand how natural systems respond to stressors – from
-      climate change and chemical pollution to novel pathogens such as the SARS-CoV-2 virus.
-      Professor Woodward sits on the Board of Directors at the Freshwater Biological Association and
-      he Events Committee of the British Ecological Society, and is the Deputy Head of Life
-      Sciences, based at Imperial’s Silwood Park campus.
+      Guy is a freshwater ecologist, with particular interests in developing new gene-to-ecosystem
+      approaches to understand how natural systems respond to stressors -- from climate change and
+      chemical pollution to novel pathogens such as the SARS-CoV-2 virus. Guy sits on the Board of
+      Directors at the Freshwater Biological Association and the Events Committee of the British
+      Ecological Society, and he is the Deputy Head of Life Sciences, based at Imperial’s Silwood
+      Park campus.
   - last_name: Harris
     first_name: Danielle
     title: Dr
@@ -84,12 +91,12 @@ people:
     role: Researcher
     twitter: Microbial_Bio
     description: >
-      Dr Danielle Harris uses molecular approaches to measure microbial community-level responses to
-      anthropogenic stressors in freshwaters. For her PhD, Dr Harris investigated the impacts of
-      warming on freshwater biofilm communities, integrating field surveys across the Arctic with
-      more controlled, high replicability mesocosm and laboratory experiments. More recently, Dr
-      Harris has begun exploring the impacts of chemical stressors on freshwater communities using
-      the mesocosm facility at Silwood Park, Imperial College London.
+      Danielle uses molecular approaches to measure microbial community-level responses to
+      anthropogenic stressors in freshwaters. For her PhD, she investigated the impacts of warming
+      on freshwater biofilm communities, integrating field surveys across the Arctic with more
+      controlled, high replicability mesocosm and laboratory experiments. More recently, Danielle
+      has begun exploring the impacts of chemical stressors on freshwater communities using the
+      mesocosm facility at Silwood Park, Imperial College London.
     image: /assets/img/danni.jpg
   - last_name: Herraiz
     first_name: Alba
@@ -97,19 +104,21 @@ people:
     job_title: Genomic Analyst &amp; Laboratory Manager
     image: /assets/img/alba.jpg
     description: >
-      Dr Herraiz gives support to the research done at the Genomics Laboratory in Silwood Park
-      Campus. She helps designing experiments, training new staff and students, and obtaining and
-      analysing data, mainly in the field of environmental DNA. Dr Herraiz is also part of the
-      Imperial Staff Supporters Scheme since 2016.
+      Alba gives support to the research done at the Genomics Laboratory in Silwood Park Campus.
+      She helps designing experiments, training new staff and students, and obtaining and analysing
+      data, mainly in the field of environmental DNA. Dr Herraiz is also part of the Imperial Staff
+      Supporters Scheme since 2016.
 ---
 <script src="https://kit.fontawesome.com/256f118032.js" crossorigin="anonymous"></script>
 
 {% for person in page.people %}
 {% if person.hidden %}{% continue %}{% endif %}
 <p>
-  <div style="overflow: auto;" markdown="1">
+  <div style="overflow: auto;" markdown="1" id="{{person.first_name | downcase}}">
     <h2>{{person.title}} {{person.first_name}} {{person.last_name}}</h2>
+    {% if person.image %}
     <img src="{{person.image}}" alt="photo of {{person.first_name}}" class="profile-image"/>
+    {% endif %}
     <div class="post-meta">{{person.job_title}}</div>
     <div class="post-meta"><em>{{person.role}}</em></div>
     {% if person.url %}
